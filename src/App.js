@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import productApi from './api/categoryApi';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import ToDoFeature from './features/ToDo';
@@ -7,6 +9,15 @@ import ToDoFeature from './features/ToDo';
 
 
 function App() {
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const productList = await productApi.getAll();
+      console.log(productList)
+    }
+    fetchProducts();
+  }, []);
+
   return (
     <div className="App">
       Home Page

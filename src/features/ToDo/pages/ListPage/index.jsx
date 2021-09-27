@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
-import ToDoList from '../../components/ToDoList';
-import { useHistory, useLocation, useRouteMatch } from 'react-router';
 import queryString from 'query-string';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useHistory, useLocation, useRouteMatch } from 'react-router';
+import ToDoForm from '../../components/ToDoForm';
+import ToDoList from '../../components/ToDoList';
 
 ListPage.propTypes = {
 
@@ -87,8 +87,14 @@ function ListPage(props) {
         return todoList.filter(todo => todo.status === filteredStatus || filteredStatus === 'all')
     }, [todoList, filteredStatus])
 
+    const handleToDoFormSubmit = (values) => {
+
+    }
+
     return (
         <div>
+            <h3>What to do? </h3>
+            <ToDoForm onSubmit={handleToDoFormSubmit}></ToDoForm>
             <h3>Todo List</h3>
             <ToDoList todoList={renderTodoList} onTodoClick={handleTodoClick} />
             <div>
