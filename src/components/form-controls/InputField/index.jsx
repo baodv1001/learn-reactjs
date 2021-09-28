@@ -1,6 +1,5 @@
+import { Form, Input } from 'antd';
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Form, Input, Button, Checkbox } from 'antd';
 InputField.propTypes = {
     
 };
